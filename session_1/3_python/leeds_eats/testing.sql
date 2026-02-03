@@ -9,3 +9,6 @@
 
 
 -- You can use this to test your sql before you write it into your program.
+SELECT DATE(Customers.signup_date) AS "Sign up date"
+FROM Customers
+ORDER BY Customers.signup_date DESC;

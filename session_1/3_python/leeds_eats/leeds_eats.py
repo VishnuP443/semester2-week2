@@ -1,15 +1,28 @@
 import sqlite3
-
+import pprint as pprint
 # ==================================================
 # Section 1 – Summaries
 # ==================================================
 
 def total_customers(conn):
-    pass
-
+    query = '''
+            SELECT COUNT(customers.customer_id) AS Number_Of_Customers
+            FROM customers
+            '''
+    cursor = conn.execute(query)
+    result = cursor.fetchone()
+    print(result[0])
 
 def customer_signup_range(conn):
-    pass
+    query = '''
+            SELECT Customers.signup_date
+            FROM Customers
+            ORDER BY Customers.signup_date DESC;
+            '''
+    cursor = conn.execute(query)
+    result = cursor.fetchall()
+    for row in result:
+        print(row[1])
 
 
 def order_summary_stats(conn):
