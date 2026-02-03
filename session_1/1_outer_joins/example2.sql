@@ -10,8 +10,8 @@
 
 -- write your sql code here
 
-SELECT name AS CourseName,student_id AS Students 
+SELECT name AS CourseName, COUNT(student_id) AS Students 
 FROM 
 Courses LEFT JOIN StudentCourses 
 ON Courses.id=StudentCourses.course_id 
-ORDER BY CourseName;
+GROUP BY CourseName;
